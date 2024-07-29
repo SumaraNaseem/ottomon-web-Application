@@ -5,8 +5,9 @@ import "animate.css/animate.min.css";
 import Image from "next/image";
 import SlipLids from "../../../components/cards/SlipLids";
 import ColorPalette from "../../../components/cards/ColorPalette";
-import "../../../css/styles.css";
 import RightSidebar from '../../../components/RightSidebar/RightSidebar';
+import "../../../css/styles.css";
+import './style.css'
 import { useRouter } from 'next/navigation';
 import ProductbaseDropdown from "../../../components/ProductbaseDropdown";
 // import DetailsMobile from "../../../components/cards/_components/details_mobile";
@@ -27,23 +28,336 @@ const Products = ({params}) => {
     console.log("hlo toggle sidebar are u there ")
     setIsSidebarOpen(!isSidebarOpen);
   };
- 
+  const headBoardSet = [
+    {
+      image: "/safina-plain-Headboard.jpg",
+      name: "Safina Plain +£95",
+      price:'95',
 
-  
+      alter: "headboard"
+    },
+    {
+      image: "/York-Headboard.jpg",
+      name: "York +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Oakland-Headboard.jpg",
+      name: "Oakland +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+
+    {
+
+      image: "/Moon-Headboard.jpg",
+      name: "Moonlight +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Elegant-Headboard.jpg",
+      name: "Elegant +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Majextic-B-Strut-30-Front-Blue.jpg",
+      name: "Majestic Elegant +£125",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Soneros-Strut-30-Front-Blue.jpg",
+      name: "Safina Elegant +£125",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Alvador-Headboard.jpg",
+      name: "Soneros +£125",
+      price:'125',
+
+      alter: "headboard"
+    }, {
+      image: "/Giovani-strutted-26.jpg",
+      name: "Alvador +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Sicilian-Headboard.jpg",
+      name: "Giovani +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+
+    {
+      image: "/Chesterfield-Headboard.jpg",
+      name: "Sicilian +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Majestic-Chesterfield-Headboard.jpg",
+      name: "Chesterfield +£95",
+      price:'95',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Safina-Chesterfield-Headboard.jpg",
+      name: "Majestic Chesterfield +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Safina-Chesterfield-Headboard.jpg",
+      name: "Safina Chesterfield +£125",
+      price:'125',
+
+      alter: "headboard"
+    }, {
+      image: "/Safina-Chesterfield-Headboard.jpg",
+      name: "Lewis Plain +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+
+    {
+      image: "/Alvador-Headboard.jpg",
+      name: "Lewis Chesterfield +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+
+  ];
+  const standingBoardSet = [
+    {
+      image: "/Plain-Safina.jpg",
+      name: "Grandeur +£155",
+      price:'155',
+
+      alter: "headboard"
+    },
+    {
+      image: "/curve-360-grey.jpg",
+      name: "curve 360 +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/curve-360-grey.jpg",
+      name: "Majestic +£195",
+      price:'195',
+
+      alter: "headboard"
+    },
+
+    {
+      image: "/curve-360-grey.jpg",
+      name: "Safina +£195",
+      price:'195',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Wingback-Plain-Floor-standing-Curved-54inch-PWB-Head-Only-LHS.jpg",
+      name: "Majestic WBPL +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/oakland-54inch.jpg",
+      name: "Oakland +£175.00",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/moonlight.jpg",
+      name: "Moonlight +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Elegant-floorstanding-Headboard.jpg",
+      name: "Elegant +£175",
+      price:'175',
+
+      alter: "headboard"
+    }, {
+      image: "/Elegant-floorstanding-Headboard.jpg",
+      name: "Soneros +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Giovani.jpg",
+      name: "Giovani +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+
+    {
+      image: "/Alvador-Panel-Headboard.jpg",
+      name: "Giovani +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/York-Panel-54inch-Headboard-Only.jpg",
+      name: "Alvador +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Horizontal-4-Panel.jpg",
+      name: "Majestic Chesterfield +£125",
+      price:'125',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Horizontal-4-Panel.jpg",
+      name: "York Panel +£175",
+      price:'175',
+
+      alter: "headboard"
+    }, {
+      image: "/Moonlight-Head-Only.jpg",
+      name: "York 4 +£175",
+      price:'175',
+
+      alter: "headboard"
+    },
+
+    {
+      image: "/Wingback-Ottoman-Storage-Bed-Plush-Velvet-Silver-Grey001-300x300.jpeg",
+      name: "Sicilian +£185",
+      price:'185',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Wingback-Ottoman-Storage-Bed-Plush-Velvet-Silver-Grey001-300x300.jpeg",
+      name: "Sicilian +£185",
+      price:'185',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Majestic-Chesterfield.jpg",
+      name: "Moonlight WB +£225",
+      price:'225',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Safina-Chesterfield.jpg",
+      name: "Elegant WB +£225",
+      price:'225',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Chesterfield-Floor-Standing-Tall-Wing-back-54inch.jpg",
+      name: "Chesterfield +£185",
+      price:'185',
+
+      alter: "headboard"
+    },
+    {
+      image: "/09-0003-P3-F1-LSV2-H1V4-54-Head-Only.jpg",
+      name: "Majestic +£245",
+      price:'245',
+
+      alter: "headboard"
+    },{
+      image: "/Wingback-Safina-Chesterfield.jpg",
+      name: "Safina +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Majestic-Wingback.jpg",
+      name: "Queen Ann +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Tall-vegas-Chesterfield.jpg",
+      name: "Oxford WB +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/Majestic-Wingback.jpg",
+      name: "Safina WB +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/09-0003-P3-F1-LSV2-H1V4-54-Head-Only.jpg",
+      name: "Majestic WB +£245",
+      price:'245',
+
+      alter: "headboard"
+    },
+    {
+      image: "/moonlight.jpg",
+      name: "Tall vegas +£275",
+      price:'275',
+
+      alter: "headboard"
+    },
+    
+  ];
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedMattress, setSelectedMattress] = useState(null);
+  const [DropdownVisibleRemovalServices, setDropdownVisibleRemovalServices] = useState(null);
+  const [Loading, setLoading] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [shake, setShake] = useState(false);
   const [BtnAmount, setBtnAmount] = useState(1); // Initial amount
   const [counter, setCounter] = useState(1); // Initial counter
-  const [accessories, setaccessories] = useState([]);
+  const [sales, setsales] = useState([]);
   const [isHidden, setIsHidden] = useState(false);
   const [showArrows, onChange] = useState(true);
   const [selectedImagePath, setSelectedImagePath] = useState("/single.png");
-  const [selectedImagePathType, setSelectedImagePathType] = useState(
-    "/Divan-Base-Only-b.png"
+  const [selectedImagePathType, setSelectedImagePathType] = useState("/Divan-Base-Only-b.png"
   );
-  const [selectedImagePathDepth, setSelectedImagePathDepth] =
-    useState("/Deep-Base.png");
-  const [amount, setAmount] = useState("00.00"); // Initial amount value
+  const [selectedImagePathDepth, setSelectedImagePathDepth] = useState("/Deep-Base.png");
+  const [amount, setAmount] = useState("0"); // Initial amount value
+  const [initialAmount, setInitialAmount] = useState(0); // Store initial fetched amount
+  const [previousButtonAmount, setPreviousButtonAmount] = useState(0); // Track the button-specific amount
+
+  console.log(amount,'add Room Services is  ==')
   const [showBedDephthOptions, setShowBedDephthOptions] = useState(false);
   const [name, setname] = useState(""); // Initial amount value
   const [description, setdescription] = useState(""); // Initial amount value
@@ -52,6 +366,165 @@ const Products = ({params}) => {
   const [inStock, setinStock] = useState(""); // Initial amount value
   const [PId, setPId] = useState(""); // Initial amount value
   const [imageUrl, setinimageUrl] = useState(""); // Initial amount value
+  const [addmattresses, setaddmattresses] = useState(true);
+  const [addServices, setaddServices] = useState(true);
+  const [Mattressopetion, setMattressopetion] = useState(true);
+  const [buttonTextShow, setbuttonTextShow] = useState('');
+  const [amountHeadboard, setAmountheadBoard] = useState('');
+ 
+  const [matressatet, setmatressatet] = useState('');
+console.log(amountHeadboard,'buttonText____1')
+  const [mattresses, setMattresses] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    const fetchMattresses = async () => {
+      try {
+        const response = await axios.get("https://ottomonukbackup1.vercel.app/mattresses");
+        setLoading(false);
+        const mattressesData = response.data.mattressesData;
+        console.log(mattressesData, "drop down data set1")
+        setMattresses(mattressesData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchMattresses();
+  }, []);
+
+  
+  const NGasPistons = (buttonText) => {
+   console.log(buttonText,'NGasPistons___')
+
+   
+  };
+  const [previousHeadBoardAmount, setPreviousHeadBoardAmount] = useState(0); // Track the button-specific amount for amountHeadboard
+
+  const HeadboardDetail1 = (buttonText) => {
+    console.log(buttonText,'buttonText111')
+    setbuttonTextShow(buttonText)
+  };
+  const HeadboardDetail = (newAmount) => {
+    let currentAmount = Number(amount);
+    let currentAmountHeadboard = Number(amountHeadboard);
+
+    currentAmount -= previousHeadBoardAmount;
+
+    currentAmount += Number(newAmount);
+    currentAmountHeadboard = Number(newAmount);
+
+    setAmount(currentAmount.toString());
+    setAmountheadBoard(currentAmountHeadboard.toString());
+    setPreviousHeadBoardAmount(Number(newAmount));
+
+    console.log("Updated Headboard amount is =", currentAmountHeadboard);
+    console.log("Updated total amount is =", currentAmount);
+  };
+  const handleButtonClick1 = (buttonText) => {
+    setmatressatet(buttonText)
+    setMattressopetion(buttonText)
+    if (buttonText === "Yes") {
+      setaddmattresses(true);
+      setDropdownVisible(true);
+      console.log("add mattresses is   =",true);
+    } else if (buttonText === "No") {
+      setaddmattresses(false);
+      setDropdownVisible(false);
+      console.log("add mattresses is  =",false);
+    }
+
+   
+  };
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  const [filteredItemId, setFilteredItemId] = useState(null);
+
+  useEffect(() => {
+      const filteredItem = cartItems.find(item => item._id === '-2');
+      if (filteredItem) {
+          console.log(filteredItem, 'Filtered Cart Item with _id -2');
+          setFilteredItemId(filteredItem._id);
+      }
+  }, [cartItems]);
+  const deliveryService=(text)=>{
+    if(filteredItemId==='-2'){
+      return
+    }
+    console.log(text,'text____')
+    if(text = 'Yes +45'){
+      var prc=45;
+   
+      var newPrc=prc.toString()
+      console.log(newPrc,'text____1')
+      const arrayData={
+        imageUrl:'https://res.cloudinary.com/dgmjg9zr4/image/upload/v1722114236/delivery_n5s73b.jpg',
+        name:'Deliver To Room Service Added',
+        _id:'-2',
+        price:newPrc
+  
+      }
+      dispatch(addToCart(arrayData));
+  
+    }
+  }
+  const handleServiceClick = (buttonText) => {
+    if (buttonText === "Yes") {
+      setaddServices(true);
+      console.log("add Services is   =",true);
+    } else if (buttonText === "No") {
+      setaddServices(false);
+      console.log("add Services is  =",false);
+    }
+  };
+  const handleRoomServiceClick = (buttonText) => {
+    if (buttonText === "Yes") {
+      setaddServices(true);
+      console.log("add Room Services is   =",true);
+    } else if (buttonText === "No") {
+      setaddServices(false);
+      console.log("add Room Services is  =",false);
+    }
+  };
+  const handleRemovalServiceClick = (buttonText) => {
+    let newAmt = 0;
+
+    // Determine the amount to add based on buttonText
+    if (buttonText === 'Base Only +£55' || buttonText==='Mattress Only +£55' ) {
+      newAmt = 55;
+    } else if (buttonText === 'Base + Mattress +£75' || buttonText==='Base + Mattress + Headboard +£75') {
+      newAmt = 75;
+    }
+
+    if (newAmt > 0) {
+      // Convert amount to a number and handle the button-specific logic
+      let currentAmount = Number(amount);
+
+      // Subtract the previous button-specific amount
+      currentAmount -= previousButtonAmount;
+
+      // Add the new amount
+      currentAmount += newAmt;
+
+      // Update the amount and button-specific amount
+      setAmount(currentAmount.toString());
+      setPreviousButtonAmount(newAmt);
+
+      console.log("Updated amount is =", currentAmount);
+    }
+
+
+    console.log("add Removal  Services is   =1",buttonText);
+
+    if (buttonText === "Yes") {
+      setaddServices(true);
+      setDropdownVisibleRemovalServices(true);
+      console.log("add Removal  Services is   =",buttonText);
+    } else if (buttonText === "No") {
+      setaddServices(false);
+      setDropdownVisibleRemovalServices(false);
+      console.log("add Removal Services is  =",false);
+    }
+  };
 
   const displayDepthOptions = () => {
     setShowBedDephthOptions(true);
@@ -256,7 +729,7 @@ const Products = ({params}) => {
         };
     }
   };
-  const [Loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     updateBedSizeAmount();
@@ -280,14 +753,18 @@ const Products = ({params}) => {
   const handleIncrease = () => {
     const newCounter = counter + 1;
     setCounter(newCounter);
-    setAmount(BtnAmount * newCounter * 10);
+    const currentAmount = parseFloat(amount);
+    const newAmount = currentAmount + initialAmount; // Increase amount by adding the initial amount
+    setAmount(newAmount.toFixed(2)); // Set the new amount with 2 decimal places
   };
   
   const handleDecrease = () => {
-    if (counter > 1) { // Ensures counter doesn't go below 1
+    if (counter > 1) { // Prevent counter from going below 1
       const newCounter = counter - 1;
       setCounter(newCounter);
-      setAmount(BtnAmount * newCounter * 10);
+      const currentAmount = parseFloat(amount);
+      const newAmount = currentAmount - initialAmount; // Decrease amount by subtracting the initial amount
+      setAmount(newAmount.toFixed(2)); // Set the new amount with 2 decimal places
     }
   };
   useEffect(() => {
@@ -310,8 +787,19 @@ const Products = ({params}) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const apiHandleDropdown = () => {
+     
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
+    setDropdownVisibleRemovalServices(!DropdownVisibleRemovalServices);
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const handleSelect = (mattress) => {
+    setSelectedMattress(mattress);
+    console.log(mattress,'your console value')
+    setIsDropdownOpen(false); // Optionally close the dropdown after selection
   };
   const onClickItem = (index) => {
     onChange(index);
@@ -319,20 +807,25 @@ const Products = ({params}) => {
 
   useEffect(() => {
  
-      const fetchaccessories = async () => {
+      const fetchsales = async () => {
         try {
           console.log('Fetching data for mattress with id:', params.slug);
 const parts=params.slug.split('D')
 console.log(parts,'parts')
 // setPId(parts[1])
-          const response = await axios.get(`https://ottomonukbackup1.vercel.app/accessories/${params.slug}`);
-          console.log('Fetched data:', response.data.accessories.price);
-          setaccessories(response.data.accessories); // Ensure you set the correct response data
-          setAmount(`$${response.data.accessories.price}`); // Set the fetched price
+const response = await axios.get(`https://ottomonukbackup1.vercel.app/accessories/${params.slug}`);
+console.log('Fetched data:', response.data.accessories.price);
+          setsales(response.data.accessories); // Ensure you set the correct response data
+          // setAmount(`${response.data.sales.price}`); // Set the fetched price
           setname(response.data.accessories.name); // Set the fetched price
           setdescription(response.data.accessories.description); // Set the fetched price
           setinStock(response.data.accessories.countInStock); // Set the fetched price
           setinimageUrl(response.data.accessories.imageUrl); // Set the fetched price
+
+          // setAmount(response.data.beds.price); // Set the fetched price
+          const fetchedPrice = response.data.accessories.price;
+          setAmount(fetchedPrice.toString()); // Set the fetched price
+          setInitialAmount(parseFloat(fetchedPrice)); // Store the initial fetched price
           setPId(response.data.accessories)
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -341,23 +834,23 @@ console.log(parts,'parts')
         }
       };
 
-      fetchaccessories();
+      fetchsales();
     
   }, [params.slug]);
   // useEffect(() => {
   //   setLoading(true);
-  //   const fetchaccessories = async () => {
+  //   const fetchsales = async () => {
   //     try {
-  //       const response = await axios.get("https://ottomonukbackup1.vercel.app/accessories/id");
+  //       const response = await axios.get("https://ottomonukbackup1.vercel.app/sales/id");
   //       setLoading(false);
-  //       setaccessories(res.data.accessoriesData);
+  //       setsales(res.data.salesData);
   //     } catch (error) {
   //       console.error("Error fetching data:", error);
   //       setLoading(false);
   //     }
   //   };
 
-  //   fetchaccessories();
+  //   fetchsales();
   // }, [CallingFrom]);
 
 
@@ -905,6 +1398,7 @@ console.log(parts,'parts')
                       "Anti-Slip Lids - Standard Top (Bed Side Supported By Wall) +£0",
                       "Foam Padded Bed Base +£125",
                     ]}
+                    // onButtonClick={handleButtonClick}
                   />
 
                   <SlipLids
@@ -914,6 +1408,7 @@ console.log(parts,'parts')
                       "Foam Padded Bed Base +£125",
                     ]}
                     // buttonStyles={buttonStyles}
+                    // onButtonClick={handleButtonClick}
                   />
 
                   <SlipLids
@@ -922,7 +1417,8 @@ console.log(parts,'parts')
                       "Standard Market Build +£0",
                       "Re-Inforced Storage Area & Lids +£80",
                     ]}
-                    // buttonStyles={buttonStyles}
+                    buttonStyles={buttonStyles}
+                    // onButtonClick={handleButtonClick}
                   />
 
                   <SlipLids
@@ -932,7 +1428,8 @@ console.log(parts,'parts')
                       "800N Gas Pistons (55-75kg Mattress) +£25",
                       // Add more button texts as needed
                     ]}
-                    // buttonStyles={buttonStyles}
+                    buttonStyles={buttonStyles}
+                    onButtonClick={NGasPistons}
                   />
                 </div>
               )}
@@ -950,8 +1447,60 @@ console.log(parts,'parts')
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
+                  
                 />
+  <SlipLids
+        defaultText="Headboard Height - 72inch Floor Standing Headboard +£100"
+        buttonTexts={[
+          "Without Headboard",
+          "26inch Strutted Headboard",
+          "54inch Floor Standing Headboard",
+          "60inch Floor Standing Headboard +£50",
+          "72inch Floor Standing Headboard +£100",
+          // Add more button texts as needed
+        ]}
+        buttonStyles={buttonStyles}
+        onButtonClick={HeadboardDetail1}
+        // onButtonClick={handleRemovalServiceClick}
+      /> 
+     
+     <div className="min-h-[30vh] flex flex-col pt-3 justify-center rounded-2xl items-center gap-5 bg-[#f1feff]">
+        <div className="border-black border-[2px] text-[#222222] font-semibold w-[85%] p-2 cursor-pointer rounded-2xl text-center">
+        Strutted Headboards - Safina Plain +£95
+        </div>
 
+
+        <div className="flex flex-wrap gap-[1%]  text-[0.8rem] w-[100%] justify-start pl-6 text-center">
+        {buttonTextShow!=='' && buttonTextShow !== 'Without Headboard' && 
+  (buttonTextShow === '26inch Strutted Headboard' ? headBoardSet : standingBoardSet).map((item, index) => (
+    <div 
+      key={index} 
+      className="flex flex-col gap-2 items-start"
+      onClick={() => HeadboardDetail(item.price)} // Add this line
+    >
+      <div className="flex flex-wrap justify-start">
+        <div
+          className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 border-[1px] rounded-md cursor-pointer transition duration-300 ease-in-out"
+          // onClick={() => handleColorClick(color)}
+        >
+          <img
+            src={item.image}
+            alt={item.alter}
+            className="w-full h-full object-cover rounded-md"
+          />
+        </div>
+      </div>
+      <div className="flex flex-wrap !w-[95px] justify-start">
+        <p className="text-center text-[12px] font-semibold my-2">{item.name}</p>
+      </div>
+    </div>
+  ))
+}
+
+        </div>
+      </div>
+      {/* {selectedHeadboard === "Without Headboard" ? "No headboards available":" board in the "} */}
+      <div className='mt-4'></div>
                  <SlipLids
                   defaultText="Would You like to add a Mattress? - No"
                   buttonTexts={[
@@ -960,7 +1509,67 @@ console.log(parts,'parts')
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
+                  onButtonClick={handleButtonClick1}
+                  dropdownVisible={dropdownVisible}
+                  Mattressopetion={Mattressopetion}
+                  // mattresses={mattresses}
+
                 />
+
+ <div>
+ {dropdownVisible ? (
+          <div className="min-h-[30vh] flex flex-col py-5 justify-center rounded-2xl items-center gap-5 bg-[#f1feff]">
+          <div className="border-black border-[2px]  text-[#222222] font-semibold w-[85%] p-2 cursor-pointer rounded-2xl text-center">
+        2ft6 Mattress Options 
+      </div>
+            
+
+            <div className="flex gap-[1%] text-[0.8rem] h-[100px] hide-scrollbar overflow-y-scroll w-[100%] pb-4 justify-center text-center">
+            <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    
+    </div>
+    {Loading ? (
+  <p className="text-lg font-semibold">Loading...</p>
+) : (
+  <div className="w-[85%] h-[150px] mb-2 overflow-y-scroll hide-scrollbar">
+    <div className="w-[100%] mb-2">
+      <div
+        onClick={apiHandleDropdown}
+        className="border-gray border-[2px] mb-2 p-2 py-8 cursor-pointer rounded-lg text-start bg-white text-gray-400"
+      >
+        {selectedMattress ? selectedMattress.name : '2ft6 Mattress Options'}
+      </div>
+      {isDropdownOpen && (
+        <div className="border -mt-[96px] border-gray-300 rounded-lg bg-gray-50">
+          {mattresses.map((mattress) => (
+            <div
+              key={mattress._id}
+              onClick={() => {handleSelect(mattress)
+                dispatch(addToCart(mattress));
+
+                }
+              }
+              className="border-gray border-[2px] z-10  p-2 py-10 cursor-pointer rounded-lg text-start bg-white text-gray-400"
+            >
+              
+              {mattress.name}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+    
+   
+  </div>
+)}
+
+
+            </div>
+          </div>
+        ):""}
+
+ 
+    </div>
                 <SlipLids
                   defaultText="Assembly Service - No"
                   buttonTexts={[
@@ -969,15 +1578,17 @@ console.log(parts,'parts')
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
+                  onButtonClick={handleServiceClick}
                 />
                 <SlipLids
                   defaultText="Deliver To Room Service - No"
                   buttonTexts={[
                     "No",
-                    "Yes",
+                    "Yes +45",
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
+                  onButtonClick={deliveryService}
                 />
                 <SlipLids
                   defaultText="Furniture Removal Service - No"
@@ -987,8 +1598,34 @@ console.log(parts,'parts')
                     // Add more button texts as needed
                   ]}
                   buttonStyles={buttonStyles}
+                  onButtonClick={handleRemovalServiceClick}
                 /> 
               </div>
+              {DropdownVisibleRemovalServices ? (<>
+                <SlipLids
+          defaultText="Bed Size"
+          buttonTexts={[
+            "Single/Double",
+            "King Size/ Super King",
+            // Add more button texts as needed
+          ]}
+          buttonStyles={buttonStyles}
+          onButtonClick={handleRemovalServiceClick}
+        /> 
+        <SlipLids
+        defaultText="No. Items"
+        buttonTexts={[
+          "Base Only +£55",
+          "Mattress Only +£55",
+          "Base + Mattress +£75",
+          "Base + Mattress + Headboard +£75",
+          // Add more button texts as needed
+        ]}
+        buttonStyles={buttonStyles}
+        onButtonClick={handleRemovalServiceClick}
+      /> </>
+        
+        ):""}
 
               {/* counter */}
               <div className="mt-12">
@@ -1016,9 +1653,13 @@ console.log(parts,'parts')
                         shake ? "animate__animated animate__shakeX" : ""
                       }`}
                       onClick={() => {
-                        dispatch(addToCart(PId));
+                        // Create a new product object with the updated price
+                        const productWithUpdatedPrice = { ...PId, price: amount,counter:counter };
+                        handleIncrease()
+                        dispatch(addToCart(productWithUpdatedPrice));
                         toggleSidebar();
-                      }}> 
+                      }}
+                      >
                       Add to Cart
                     </button>
                     <svg
@@ -1194,10 +1835,12 @@ console.log(parts,'parts')
                           shake ? "animate__animated animate__shakeX" : ""
                         }`}
                         onClick={() => {
-                          dispatch(addToCart(PId));
+                          // Create a new product object with the updated price
+                          const productWithUpdatedPrice = { ...PId, price: amount,counter:counter };
+                          handleIncrease()
+                          dispatch(addToCart(productWithUpdatedPrice));
                           toggleSidebar();
-                        }}> 
-                        Add to Cart
+                        }}>Add to Cart
                       </button>
                     </div>
                   </div>
