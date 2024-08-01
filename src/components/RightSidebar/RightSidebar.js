@@ -47,7 +47,7 @@ console.log(cartItemss,'cartLength____1')
     };
 
     const handleCheckout = () => {
-        router.push('/NewPaymentCardSetup'); // Adjust path if necessary
+        router.push('/CheckOut'); // Adjust path if necessary
     };
 
     return (

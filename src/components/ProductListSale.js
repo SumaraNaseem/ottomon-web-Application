@@ -1,38 +1,67 @@
-"use client"
-import { Mattresses, Products } from '../data/products'
-import React, { useEffect, useState, useRef, Suspense } from 'react'
-import ProductCardAccessories from './ProductCardAccessories'
-import ReactPaginate from 'react-paginate'
-import ProductCardsale from './ProductCardsale'
+"use client";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import ProductCardsale from './ProductCardsale';
 
-const ProductListSale = ({ selectedGrid, setSelectedGrid, pageType,CallingFrom }) => {
-    const listRef = useRef()
-    const isMattresses = pageType === 'Mattress';
-    const isMattressesPocketSprung = pageType === 'PocketSprung';
-     //pagination 
-    const itemsPerPage = 10
-    const [itemOffset, setItemOffset] = useState(0);
-    const endOffset = itemOffset + itemsPerPage;
-    const currentProducts = isMattresses ? Mattresses.slice(itemOffset, endOffset) : Products.slice(itemOffset, endOffset);
- 
-    const pageCount = Math.ceil(Products.length / itemsPerPage);
+const ProductListSale = ({ selectedGrid, setSelectedGrid, pageType, CallingFrom }) => {
+    const itemsPerPage = 4;
+    const [currentPage, setCurrentPage] = useState(0);
+    const [mattresses, setMattresses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // Invoke when user click to request another page.
+    useEffect(() => {
+        const fetchMattresses = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get("https://ottomonukbackup1.vercel.app/sales");
+                const filters = {
+                    DivanBeds: 'Divan Beds',
+                    DivanBasesOnly: 'Divan Bases Only',
+                    BedFrames: 'Bed Frames',
+                    Mattresses: 'Mattresses',
+                    Headboards: 'Headboards',
+                    Furniture: 'Furniture',
+                    AllSales: 'All Sales',
+                    ClearanceBundles: 'Clearance Bundles'
+                };
+
+                const filteredData = response.data.salesData.filter(
+                    (value) => value.type === filters[CallingFrom]
+                );
+                setMattresses(filteredData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchMattresses();
+    }, [CallingFrom]);
+
     const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % Products.length;
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-        setItemOffset(newOffset);
+        setCurrentPage(event.selected);
     };
+
+    const currentItems = mattresses.slice(
+        currentPage * itemsPerPage,
+        (currentPage + 1) * itemsPerPage
+    );
+
+    const pageCount = Math.ceil(mattresses.length / itemsPerPage);
+
     return (
         <div>
             <section id="Projects"
                 className={` ${selectedGrid === 2 ? "custom-grid" : "grid grid-cols-" + selectedGrid} ${selectedGrid !== 0 ? 'justify-items-center justify-center gap-6 ' : ''}mt-10 mb-5 `}>
-                    {/* {currentProducts.map((product, i) => ( */}
-                        <ProductCardsale CallingFrom={CallingFrom} pageType={pageType}  selectedGrid={selectedGrid}    />
-                    {/* ))} */}
+                <ProductCardsale 
+                    items={currentItems}
+                    selectedGrid={selectedGrid}
+                    pageType={pageType}
+                    CallingFrom={CallingFrom}
+                    loading={loading}
+                />
             </section>
             <hr className='text-primary' />
             <div className='flex justify-center mt-3'>
@@ -50,9 +79,10 @@ const ProductListSale = ({ selectedGrid, setSelectedGrid, pageType,CallingFrom }
                     pageCount={pageCount}
                     previousLabel="Previous"
                     renderOnZeroPageCount={null}
-                /></div>
+                />
+            </div>
         </div>
-    )
+    );
 }
 
-export default ProductListSale
+export default ProductListSale;

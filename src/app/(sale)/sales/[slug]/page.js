@@ -369,7 +369,7 @@ const Products = ({params}) => {
   const [addmattresses, setaddmattresses] = useState(true);
   const [addServices, setaddServices] = useState(true);
   const [Mattressopetion, setMattressopetion] = useState(true);
-  const [buttonTextShow, setbuttonTextShow] = useState('');
+  const [buttonTextShow, setbuttonTextShow] = useState('Without Headboard');
   const [amountHeadboard, setAmountheadBoard] = useState('');
  
   const [matressatet, setmatressatet] = useState('');
@@ -460,7 +460,8 @@ console.log(amountHeadboard,'buttonText____1')
         imageUrl:'https://res.cloudinary.com/dgmjg9zr4/image/upload/v1722114236/delivery_n5s73b.jpg',
         name:'Deliver To Room Service Added',
         _id:'-2',
-        price:newPrc
+        price:newPrc,
+        description:"This is the home delivery service "
   
       }
       dispatch(addToCart(arrayData));
@@ -1463,11 +1464,13 @@ console.log(parts,'parts')
         onButtonClick={HeadboardDetail1}
         // onButtonClick={handleRemovalServiceClick}
       /> 
-     
+     {buttonTextShow !== 'Without Headboard' && (
      <div className="min-h-[30vh] flex flex-col pt-3 justify-center rounded-2xl items-center gap-5 bg-[#f1feff]">
+     
         <div className="border-black border-[2px] text-[#222222] font-semibold w-[85%] p-2 cursor-pointer rounded-2xl text-center">
-        Strutted Headboards - Safina Plain +£95
+            Strutted Headboards - Safina Plain +£95
         </div>
+   
 
 
         <div className="flex flex-wrap gap-[1%]  text-[0.8rem] w-[100%] justify-start pl-6 text-center">
@@ -1499,6 +1502,7 @@ console.log(parts,'parts')
 
         </div>
       </div>
+       )}
       {/* {selectedHeadboard === "Without Headboard" ? "No headboards available":" board in the "} */}
       <div className='mt-4'></div>
                  <SlipLids

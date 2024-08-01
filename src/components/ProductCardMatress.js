@@ -155,57 +155,71 @@ const ProductCardMatress = ({ item, selectedGrid, pageType, CallingFrom }) => {
             </div>
           </div>
         ) : (
-          <div key={item._id} className={`${selectedGrid === 2 ? "min-w-[500px] max-w-[500px]" : "w-full"} bg-white shadow-md rounded-xl hover:shadow-xl overflow-hidden`}>
-          <div className={`relative w-full ${selectedGrid === 2 ? "h-[500px]" : "h-auto sm:h-[300px] md:h-[400px] lg:h-[500px]"}`}>
-            <span
-              ref={icon1Ref}
-              className="absolute left-5 top-2 text-white hidden z-10"
-            >
-              <i className="font-extralight fa fa-regular fa-heart"></i>
-            </span>
-            <span
-              ref={icon2Ref}
-              className="absolute left-5 top-8 text-white hidden z-10"
-            >
-              <i className="font-extralight fa fa-solid fa-code-compare"></i>
-            </span>
-            <div className="absolute right-5 top-8 h-12 w-12 bg-primary rounded-full z-10 flex items-center justify-center text-white">
-              {item.Discount} %
+          <div key={item._id} className="min-w-full min-h-full bg-white shadow-md rounded-xl  hover:shadow-xl overflow-hidden">
+            <div className="overflow-hidden relative">
+              <span
+                ref={icon1Ref}
+                className="absolute left-5 top-2 text-white hidden z-10"
+              >
+                <i className="font-extralight fa fa-regular fa-heart"></i>
+              </span>
+              <span
+                ref={icon2Ref}
+                className="absolute left-5 top-8 text-white hidden z-10"
+              >
+                <i className="font-extralight fa fa-solid fa-code-compare"></i>
+              </span>
+              <div className="absolute right-5 top-8 h-12 w-12  bg-primary rounded-full z-10 flex items-center justify-center text-white">
+                {item.Discount}%
+              </div>
+
+              <img
+                src={item.imageUrl}
+                 alt="Product"
+                className=" object-contain h-[auto] w-[100%] rounded-t-xl duration-1000 hover:scale-125"
+                ref={imageRef}
+              />
             </div>
-            <img
-              src={item.imageUrl}
-              alt="Product"
-              className="object-cover w-full h-full rounded-t-xl duration-1000 hover:scale-125"
-            />
-          </div>
-          <div className="text-center pt-3">
-            {!isMattresses && (
-              <a onClick={() => {
-                router.push(`/mattresses/id=${item._id}`);
-              }} className="byb-badge cursor-pointer">
-                <span>Customize your bed</span>
-              </a>
-            )}
-          </div>
-          <div className="px-4 py-3">
-            <span className="text-gray-400 mr-3 text-xs hover:text-primary duration-500">
-              {item.Shopby}
-            </span>
-            <span className="text-black text-sm hover:text-primary duration-500 block capitalize font-medium">
-              {item.name}
-            </span>
-            <div className="flex items-center">
-              <>
-                <del>
-                  <p className="text-sm text-gray-400 cursor-auto me-2">
-                    {item.actualPrice}
-                  </p>
-                </del>
-                <p className="text-sm cursor-auto text-red-600">{item.price}</p>
-              </>
+            <div className="text-center pt-3">
+              {(
+                <a onClick={() => {
+                  router.push(`/mattresses/id=${item._id}`);}}className="byb-badge" style={{ cursor: 'pointer', }}>
+                  <span>Customize your bed</span>
+                </a>
+              )}
+            </div>
+            <div className="px-4 py-3">
+              <span className="text-gray-400 mr-3 text-xs  hover:text-primary duration-500">
+                {item.Shopby}
+              </span>
+              <span className="text-black text-gray-400 text-sm hover:text-primary duration-500 block capitalize font-medium">
+                {item.name}
+              </span>
+              {CallingFrom !== undefined ? ("") : (<span className="text-black text-sm hover:text-primary duration-500 block capitalize font-medium">
+                {item.description}
+              </span>)}
+
+              <div className="flex items-center">
+                <>
+                  <del>
+                    <p className="text-sm text-gray-400 cursor-auto me-2">
+                      {item.actualPrice}
+                    </p>
+                  </del>
+                  <p className="text-sm cursor-auto text-red-600">{item.price}</p>
+                </>
+
+              </div>
+              {/* {CallingFrom !== undefined ? (<button className="bg-primary text-white  add-to-cart btn btn-default"
+                onClick={() => {
+                  dispatch(addToCart(item.id));
+                }}
+                type="button">add to cart</button>) : (" "
+
+              )} */}
+
             </div>
           </div>
-        </div>
         )
       )
     )
